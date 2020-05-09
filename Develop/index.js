@@ -56,8 +56,9 @@ inquirer.prompt([
   //ajax call
   var queryUrl = `https://api.github.com/users/${data.username}`
   axios.get(queryUrl).then(function(response) {
-    const userimg = response.avatar_url;
-    const useremail = response.email 
+    var thestuff = response
+    const userimg = thestuff.avatar_url;
+    const useremail = thestuff.email 
     
 
 // writing file
