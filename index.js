@@ -14,22 +14,22 @@ inquirer.prompt([
   {
     type: "input",
     message: "What is the title of your project?",
-    name: "title",
+    name: "Title",
   },
   {
     type: "input",
     message: "Describe the purpose of your project",
-    name: "description",
+    name: "Description",
   },
   {
     type: "input",
     message: "How is it used?",
-    name: "installation",
+    name: "Usage",
   },
   {
     type: "input",
-    message: "What tests were used?",
-    name: "test",
+    message: "Anything else to add?",
+    name: "Details",
   }
 ]).then(function(data) {
 
@@ -37,7 +37,6 @@ inquirer.prompt([
   var queryUrl = `https://api.github.com/users/${data.username}`
   axios.get(queryUrl).then(function(response) {
     var thestuff = response;
-    console.log(thestuff);
     const userimg = thestuff.avatar_url;
     const useremail = thestuff.email 
     
@@ -50,11 +49,11 @@ inquirer.prompt([
       return console.log(err);
     }
 
-    fs.appendFile('README.md', userimg, function (err) {
+    fs.appendFile('README2.md', userimg, function (err) {
       if (err) throw err;
     });
 
-    fs.appendFile('README.md', useremail, function (err) {
+    fs.appendFile('README2.md', useremail, function (err) {
       if (err) throw err;
     });
 
